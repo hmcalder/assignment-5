@@ -1,14 +1,15 @@
 //handles when the user submits the form
-function handleSubmit(event){
+function handleSubmit(event, search, onSearch){
     event.preventDefault();
+
+    //sends the search to app.jsx
+    onSearch(search);
 }
 //makes the form 
-function SearchForm({ search, setSearch }){
-
- 
+function SearchForm({ search, setSearch, onSearch }){
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(event) => handleSubmit(event, search, onSearch)}>
 
             <input 
                 type="text"
