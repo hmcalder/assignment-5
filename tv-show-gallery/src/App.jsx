@@ -1,16 +1,23 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import SearchForm from './SearchForm'
+import SearchStatus from './SearchStatus';
+import ShowList from './ShowList';
 
 function App() {
 
+  //states:
+
+
   //so we an change a variable
   const [search, setSearch] = useState('');
+  //the array that holds the fetched shows 
   const [shows, setShows] = useState([]);
   //stores the TV shows from TVmaz
   const[submittedSearch, setSubmittedSearch] = useState('Blue Bloods');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   //Runs when the search is actually submitted(keeps it from submitting every letter)
   useEffect(() => {
@@ -19,6 +26,9 @@ function App() {
     setError(null);
     //a new request is loading (waiting for results of the api call)
     setLoading(true);
+
+    //reset whether a search has completed
+    setHasSearched(false);
 
     //the url
     const url = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(submittedSearch)}`;
@@ -49,6 +59,9 @@ function App() {
         //api request finished correctly 
         setLoading(false);
 
+        //make the search come back as done and loaded
+        setHasSearched(true);
+
       })
       .catch((error) => {
 
@@ -73,8 +86,23 @@ function App() {
       search = {search}
       setSearch = {setSearch}
       onSearch = {setSubmittedSearch}
+      onError = {setError}
+      /> 
+
+    <SearchStatus 
+      loading = {loading} 
+      error = {error} 
+      resultCount = {shows.length}
+      hasSearched = {hasSearched}
       />
-    {error && <p>{error}</p>}
+
+      <ShowList
+        shows = {shows}
+      />
+
+      
+
+
     
     </>
   )
