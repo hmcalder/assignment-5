@@ -3,6 +3,8 @@ import './App.css'
 import SearchForm from './SearchForm'
 import SearchStatus from './SearchStatus';
 import ShowList from './ShowList';
+import {Routes, Route } from 'react-router-dom'
+import ShowDetail from './ShowDetail';
 
 function App() {
 
@@ -75,7 +77,10 @@ function App() {
   }, [submittedSearch]);
 
   return (
+  <Routes>
 
+
+    <Route path="/" element={
     <>
     <div>
       <h1> TV Show Gallery</h1>
@@ -98,14 +103,13 @@ function App() {
       />
 
       <ShowList
-        shows = {shows}
-      />
+        shows = {shows}/>
+        </>
+      }/>
 
-      
 
-
-    
-    </>
+      <Route path ="/shows/:id" element={<ShowDetail />} />
+    </Routes>
   )
 }
 
