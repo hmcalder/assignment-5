@@ -87,6 +87,7 @@ function App() {
       setSearch = {setSearch}
       onSearch = {setSubmittedSearch}
       onError = {setError}
+      onClearResults = {setShows}
       /> 
 
     <SearchStatus 

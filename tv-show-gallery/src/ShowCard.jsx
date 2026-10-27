@@ -1,5 +1,7 @@
 //responsible for displaying each show card 
 
+import { formatDate } from "./utils";
+
 
 //show created with map (individual show)
 function ShowCard({show}){
@@ -16,12 +18,36 @@ function ShowCard({show}){
 
         //extracts text without HTML 
         cleanSum = temp.textContent;
+    }
+
+    //checking to see if summary is null
+    if(cleanSum === null || cleanSum.trim() === ""){
+        cleanSum = "No Summary for this particular show."
+    }
+
+    //movie posters 
+    let poster;
+
+    //if movie is not null
+    if(show.image !== null && show.image !== undefined){
+        poster = <img src={show.image?.medium} alt={show.name} />;
+    }
+    //if movie is null
+    else{
+        poster = <p>No Image Available</p>
 
     }
+
+    //format the premiere date
+    const premiereDate = formatDate(show.premiered);
+
+
     return(
         <article>
             <h3>{show.name}</h3>
+            {poster}
             <p>{cleanSum}</p>
+            <p>Premiere Date: {premiereDate}</p>
         </article>
     );
 }
