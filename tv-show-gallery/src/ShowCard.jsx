@@ -1,6 +1,7 @@
 //responsible for displaying each show card 
 
 import { formatDate } from "./utils";
+import { formatUpdated } from "./utils";
 
 
 //show created with map (individual show)
@@ -41,6 +42,11 @@ function ShowCard({show}){
     //format the premiere date
     const premiereDate = formatDate(show.premiered);
 
+    //format the last updated 
+    const lastUpdated = formatUpdated(show.updated);
+
+
+
 
     return(
         <article>
@@ -48,6 +54,7 @@ function ShowCard({show}){
             {poster}
             <p>{cleanSum}</p>
             <p>Premiere Date: {premiereDate}</p>
+            <p>Last Updated: {lastUpdated} </p>
         </article>
     );
 }
