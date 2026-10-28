@@ -106,6 +106,7 @@ function App() {
       loading = {loading} 
       error = {error} 
       resultCount = {shows.length}
+      searchTerm = {submittedSearch}
       hasSearched = {hasSearched}
       />
 
