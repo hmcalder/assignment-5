@@ -140,7 +140,7 @@ function ShowCard({show}){
 
 
     return(
-        <article>
+        <article className="show-card">
             <h3>
                 <Link to={`/shows/${show.id}`}>
                     {show.name}

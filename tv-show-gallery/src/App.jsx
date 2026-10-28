@@ -45,7 +45,7 @@ function App() {
       .then((res) => {
         
         //fail response 
-        if(!res.status === 429){
+        if(res.status === 429){
           throw new Error("Too many requests. Please try again.");
         }
         else if(!res.ok){
@@ -72,14 +72,15 @@ function App() {
 
       })
       .catch((error) => {
+        if(error.name != "AbortError"){
+          //store error message 
+          setError(error.message);
 
-        //store error message 
-        setError(error.message);
-
-        //finish the api request 
-        setLoading(false);
+          //finish the api request 
+          setLoading(false);
+        }
       });
-
+      return () => controller.abort();
   }, [submittedSearch]);
 
   return (
@@ -110,6 +111,13 @@ function App() {
 
       <ShowList
         shows = {shows}/>
+
+        <footer>
+          <p>TV Show information provided by TVmaze.</p>
+          <a href="https://www.tvmaze.com/" target="_blank" rel="noopener noreferrer">
+            Visit TVmaze
+          </a>
+        </footer>
         </>
       }/>
 

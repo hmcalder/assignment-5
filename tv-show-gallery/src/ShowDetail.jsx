@@ -196,7 +196,7 @@ function ShowDetail(){
     const cleanSum = stripHTML(show.summary);
 
     return (
-        <div>
+        <div className="show-detail">
             <h2>{show.name}</h2>
             {show.image ? (
                 <img src={show.image.original || show.image.medium} alt={show.name}/>

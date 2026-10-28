@@ -33,3 +33,151 @@ input{
 }
 
 
+form button{
+  background-color: #B77F92;
+  color: #FFFFFF;
+  border: 2px solid #D8BD82;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+form button:hover{
+  background-color: #986677;
+}
+
+.show-gallery{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:20px;
+  padding: 20px;
+}
+ .show-card{
+  background-color: #FFFFFF;
+  border: 2px solid #D8BD82;
+  border-radius: 12px;
+  padding: 20px;
+  flex:1 1 280px;
+  max-width: 400px;
+  box-sizing: border-box;
+ }
+
+ .show-card h3 a{
+  color: #B77F92;
+  text-decoration: underline;
+  text-decoration-color: #D8BD82;
+
+ }
+
+ .show-card img{
+  display:block;
+  max-width: 100%;
+  height: 280px;
+  object-fit: contain;
+  border: 5px solid #D8BD82;
+  border-radius: 8px;
+  margin: 0 auto 20px auto;
+ }
+
+ .show-card > a{
+  display:block;
+  text-align: center;
+  background-color: #B77F92;
+  color: #FFFFFF;
+  border: 1px solid #D8BD82;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+  text-decoration: none;
+ }
+ .show-card > a:hover{
+  background-color: #986677;
+ }
+
+ .show-card ul {
+  text-align: left;
+  padding-left: 25px;
+  margin-top: 5px;
+ }
+
+ .show-card li{
+  margin-bottom: 5px;
+ }
+
+ .show-detail img {
+  display: block;
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 20px auto;
+ }
+
+ .show-detail{
+  background-color: #FFFFFF;
+  border: 2px solid #D8BD82;
+  border-radius: 12px;
+  padding: 30px;
+  margin:30px auto;
+  max-width: 850px;
+  text-align: center;
+ }
+/*back to gallery*/
+ .show-detail a{
+  display: inline-block;
+  background-color: #B77F92;
+  color: #FFFFFF;
+  border: 2px solid #D8BD82;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 20px;
+ }
+ .show-detail a:hover{
+  background-color: #986677;
+ }
+
+ .show-detail h2{
+  color: #B77F92;
+  border-bottom: 2px solid #D8BD82;
+  padding-bottom: 15px;
+  font-size: 45px;
+ }
+
+ .show-detail h3{
+  color: #B77F92;
+  margin-top: 30px;
+ }
+
+ footer{
+  text-align: center;
+  padding: 20px;
+  color: #604B53;
+ }
+
+ footer a{
+  color:  #B77F92;
+ }
+
+ /* fit a mobile phone */
+ @media(max-width: 600px) {
+  form{
+    flex-direction: column;
+  }
+
+  .show-card{
+    max-width: 100%;;
+  }
+
+  .show-detail{
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .show-detail h2{
+    font-size: 30px;
+  }
+ }
+
+

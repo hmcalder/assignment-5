@@ -6,7 +6,7 @@ import ShowCard from "./ShowCard";
 
 function ShowList({shows}){
     return(
-        <div>
+        <div className="show-gallery">
             {shows.map((show) =>
 
             <ShowCard key = {show.id} show = {show} />
