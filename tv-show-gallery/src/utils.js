@@ -38,3 +38,21 @@ export function formatUpdated(timeStamp) {
     //returns the formated date and time 
     return date.toLocaleString("en-US");
 }
+
+//removes html tags 
+export function stripHTML(summary){
+    if(!summary){
+        return "No Summary Available";
+    }
+
+    const temp = document.createElement("div");
+    temp.innerHTML = summary;
+
+    let cleanSum = temp.textContent;
+
+    if(!cleanSum || cleanSum.trim() ===""){
+        cleanSum = "No Summary Available."
+    }
+
+    return cleanSum;
+}

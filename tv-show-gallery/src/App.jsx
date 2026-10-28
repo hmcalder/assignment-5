@@ -24,6 +24,9 @@ function App() {
   //Runs when the search is actually submitted(keeps it from submitting every letter)
   useEffect(() => {
 
+    //controller for the gallery api request 
+    const controller = new AbortController();
+
     //reset error
     setError(null);
     //a new request is loading (waiting for results of the api call)
@@ -38,12 +41,15 @@ function App() {
 
     //actually fetch the url and wait for the promise 
     //res = the response 
-    fetch(url)
+    fetch(url, { signal: controller.signal })
       .then((res) => {
         
         //fail response 
-        if(!res.ok){
-          throw new Error("Request Failed");
+        if(!res.status === 429){
+          throw new Error("Too many requests. Please try again.");
+        }
+        else if(!res.ok){
+          throw new Error("Could not load shows.");
         }
 
         //turns json into JavaScript
