@@ -29,6 +29,10 @@ function App() {
 
     //reset error
     setError(null);
+
+    //reseting the page
+    setShows([]);
+
     //a new request is loading (waiting for results of the api call)
     setLoading(true);
 
